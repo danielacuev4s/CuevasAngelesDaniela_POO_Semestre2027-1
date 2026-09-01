@@ -1,17 +1,16 @@
 import java.util.Scanner;
 
-public class Cuadrado {
+public class Conversion {
     public static void main(String[] args) {
         Scanner teclado=new Scanner(System.in);
         
-        System.out.print("Ingresa la medida de un lado (en cm ): ");
-        int lado=teclado.nextInt();
-        int area=lado*lado;
-        int perimetro=lado*4;
+        System.out.println("Convierte grados celcius a fahrenheit");
+        System.out.print("Ingresa la temperatura en grados Celsius: ");
+        double celsius=teclado.nextDouble();
         
-        System.out.println("El área del cuadrado es: " + area+ "cm²");
-        System.out.println("El perímetro del cuadrado es: " + perimetro+ "cm");
-
+        double fahrenheit=(celsius*9/5)+32;
+        
+        System.out.println("La temperatura en Fahrenheit es: "+fahrenheit+"°F");
         teclado.close();
     }
 }

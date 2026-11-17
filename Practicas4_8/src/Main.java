@@ -19,6 +19,15 @@ Funcionamiento general
     de los préstamos
 */
 
+/*Realizado por:
+    - Pérez Galindo Claudia
+    - Zepeda Calalpa Carlos
+-----------------------------------
+Funcionamiento general
+    Este es el probador principal, aquí se instancia la clase Biblioteca
+    y se ejecutan los 4 casos de prueba solicitados en la práctica.
+*/
+
 public class Main {
 
     // Declaracion de métodos -----------------------------------------------------------------
@@ -37,10 +46,10 @@ public class Main {
 
         miBiblioteca = new Biblioteca();
 
-        System.out.println("\n--- Registro de Libros ---");
-        libro1 = new Libro("111", "La casa de los espíritus", "Isabel Allende", 1982, true);
-        libro2 = new Libro("222", "Eva Luna", "Isabel Allende", 1987, true);
-        libro3 = new Libro("333", "De amor y de sombra", "Isabel Allende", 1984, true);
+        System.out.println("\n--- Caso 1: Registro de Libros ---");
+        libro1 = new Libro("111", "Java Básico", "Varios Autores", 2021, true);
+        libro2 = new Libro("222", "Clean Code", "Robert C. Martin", 2008, true);
+        libro3 = new Libro("333", "Patrones de Diseño", "GoF", 1994, true);
 
         miBiblioteca.agregarLibro(libro1);
         miBiblioteca.agregarLibro(libro2);
@@ -48,32 +57,32 @@ public class Main {
 
         miBiblioteca.mostrarCatalogo();
 
-        System.out.println("\n--- Registro y Lista de Usuarios ---");
-        usuario1 = new Usuario(1, "Gabriel García Márquez", "gabo@unam.mx", true);
-        usuario2 = new Usuario(2, "Julio Cortázar", "julio@unam.mx", true);
+        System.out.println("\n--- Caso 2: Registro de Usuarios ---");
+        // Se usa el constructor disponible en la clase Usuario.
+        usuario1 = new Usuario(1, "Juan Pérez", "juancho@gmail.com", "55-1111-2222", true);
+        usuario2 = new Usuario(2, "María Gómez", "maria.gomez@gmail.com", "55-3333-4444", true);
 
         miBiblioteca.registrarUsuario(usuario1);
         miBiblioteca.registrarUsuario(usuario2);
 
         miBiblioteca.mostrarUsuarios();
 
-        System.out.println("\n--- Solicitud de Préstamo ---");
+        System.out.println("\n--- Caso 3: Solicitud de Préstamo ---");
+        System.out.println("Juan solicita el libro Clean Code.");
+        
+        prestamo1 = new Prestamo(usuario1, libro2); 
+        prestamo1.iniciarPrestamo(); 
+        
+        System.out.println("Resultado esperado:");
+        System.out.println("Libro disponible = " + libro2.estaDisponible());
+        System.out.println("Préstamo activo = " + prestamo1.estaActivo());
 
-        miBiblioteca.realizarPrestamo(usuario1, libro2);
-        miBiblioteca.mostrarPrestamosActivos();
-
-        System.out.println("\n--- Devolución de Préstamo ---");
-        prestamo1 = new Prestamo(usuario1, libro2);
-        miBiblioteca.devolverLibro(prestamo1);
-
-        System.out.println("\n--- Probando Búsquedas ---");
-        System.out.println("Buscando por puro isbn: " + miBiblioteca.buscarLibro("222").getTitulo());
-        System.out.println("Buscando por isbn y titulo: " + miBiblioteca.buscarLibro("333", "De amor y de sombra").getTitulo());
-        System.out.println("Buscando al usuario 1: " + miBiblioteca.buscarUsuario(1).getNombre());
-
-        System.out.println("\n--- Eliminando Libro ---");
-        miBiblioteca.eliminarLibro("111");
-        miBiblioteca.mostrarCatalogo();
-
+        System.out.println("\n--- Caso 4: Devolución de Libro ---");
+        System.out.println("Juan devuelve el libro.");
+        miBiblioteca.devolverLibro(prestamo1); 
+        
+        System.out.println("Resultado esperado:");
+        System.out.println("Libro disponible = " + libro2.estaDisponible());
+        System.out.println("Préstamo activo = " + prestamo1.estaActivo());
     }
 }

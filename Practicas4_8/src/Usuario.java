@@ -35,7 +35,7 @@ public class Usuario extends Persona {
         this.activo = true;
     }
 
-    public Usuario(int id, String nombre, String correo, boolean activo) {
+    public Usuario(int id, String nombre, String correo, String string, boolean activo) {
         super();
         this.id = id;
         this.nombre = nombre;

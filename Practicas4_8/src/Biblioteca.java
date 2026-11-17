@@ -25,10 +25,10 @@ public class Biblioteca {
 
     // Declaracion de atributos ---------------------------------------------------------------
 
-    private ArrayList<Libro> libros;
-    private ArrayList<Usuario> usuarios;
-    private ArrayList<Bibliotecario> empleados;
-    private ArrayList<Prestamo> prestamos;
+    private final ArrayList<Libro> libros;
+    private final ArrayList<Usuario> usuarios;
+    private final ArrayList<Bibliotecario> empleados;
+    private final ArrayList<Prestamo> prestamos;
 
     // Declaracion de constructores -------------------------------------------------
 

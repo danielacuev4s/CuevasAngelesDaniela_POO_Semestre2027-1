@@ -1,0 +1,3 @@
+2026;11;21;18;false;Eventos García
+2026;12;12;20;false;Familia Mendoza
+2026;12;22;22;false;Daniela
